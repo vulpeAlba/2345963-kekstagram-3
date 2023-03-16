@@ -11,7 +11,7 @@ function strLenCheck (str, maxLength) {
 const createPost = (number) => ({
   id: number,
   url: `photos/${number}.jpg`,
-  description: `It\'s my ${number} photo`,
+  description: `It's my ${number} photo`,
   likes: randNum(15, 200),
   comments: randNum(0, 200)
 });
