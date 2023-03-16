@@ -6,3 +6,5 @@ function strLenCheck (str, maxLength) {
   return str.length <= maxLength;
 }
 
+randNum(2, 5)
+strLenCheck('Hello, World', 15)
