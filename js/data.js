@@ -1,4 +1,4 @@
-import { getRandNum } from "./util.js";
+import { getRandNum } from './util.js';
 
 const createPost = (number) => ({
   id: number,
