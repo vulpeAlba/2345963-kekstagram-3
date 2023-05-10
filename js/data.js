@@ -8,10 +8,10 @@ const createPost = (number) => ({
   comments: getRandNum(0, 200)
 });
 
-export function createPostsList (number) {
+export const createPostsList = (number) => {
   const data = [];
   for(let i = 0; i < number; i++) {
     data[i] = createPost(i + 1);
   }
   return data;
-}
+};

@@ -7,3 +7,7 @@ export function getRandNum (min, max) {
 export function strLenCheck (str, maxLength) {
   return str.length <= maxLength;
 }
+
+export function isDescriptionValid(value) {
+  return value.length >= 20 && value.length <= 140;
+}
