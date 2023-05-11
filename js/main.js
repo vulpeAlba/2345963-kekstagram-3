@@ -1,7 +1,6 @@
-import { createPostsList } from './data.js';
-import { render } from './script.js';
 import './validate.js';
 import './form.js';
+import './scale.js';
 
-const data = createPostsList(25);
-render(data);
+import { getData } from './api.js';
+getData();
