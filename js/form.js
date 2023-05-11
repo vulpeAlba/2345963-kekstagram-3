@@ -1,4 +1,5 @@
 import { setupListeners, removeListeners } from './effects.js';
+import { resizeImage } from './scale.js';
 
 const imageForm = document.querySelector('.img-upload__form');
 const imageOverlay = imageForm.querySelector('.img-upload__overlay');
@@ -7,6 +8,7 @@ const uploadFile = document.querySelector('#upload-file');
 const img = document.querySelector('.img-upload__preview > img');
 
 const cleanForm = () => {
+  resizeImage(100);
   document.querySelector('#upload-select-image').reset();
   document.querySelector('#upload-file').value = '';
   document.querySelector('.text__hashtags').value = '';
@@ -21,15 +23,17 @@ const openWindow = (e) => {
   setupListeners();
 };
 
-export const closeWindow = () => {
+export function closeWindow(clean = false) {
   imageOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', closeOnButton);
   img.classList.remove(...img.classList);
   img.classList.add('effects__preview--none');
   removeListeners();
-  cleanForm();
-};
+  if (clean) {
+    cleanForm();
+  }
+}
 
 function closeOnButton(evt) {
   if (evt.key === 'Escape') {
