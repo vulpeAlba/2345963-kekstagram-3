@@ -25,6 +25,10 @@ function validateComment(element) {
   return !strLenCheck(element, 19) && strLenCheck(element, 140);
 }
 
+export function resetForm() {
+  pristine.reset();
+}
+
 imageForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
