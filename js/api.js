@@ -1,5 +1,5 @@
-import { showErrorFetch } from './error.js';
-import { closeWindow } from './form.js';
+import { checkError } from './error.js';
+import { closeWindow, initForm } from './form.js';
 import { showErrorMessage, showSuccessMessage } from './message.js';
 import { showPicturesFromObjects } from './pictures.js';
 
@@ -12,7 +12,8 @@ export function getData () {
       }
     })
     .then((response) => showPicturesFromObjects(response))
-    .catch(() => showErrorFetch());
+    .catch(() => checkError('Ошибка загрузки изображения'));
+  initForm();
 }
 
 export const sendData = (evt) => {
@@ -24,11 +25,11 @@ export const sendData = (evt) => {
   )
     .then((response) => {
       if (response) {
-        showSuccessMessage();
         closeWindow(true);
+        showSuccessMessage();
       } else {
-        showErrorMessage();
         closeWindow(false);
+        showErrorMessage();
       }
     })
     .catch(() => {
